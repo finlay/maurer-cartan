@@ -1,3 +1,3 @@
-# Experiments in understand the Maurer-Cartan form
+## Experiments with the Maurer-Cartan form
 
 
