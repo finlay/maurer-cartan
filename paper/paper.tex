@@ -1,4 +1,7 @@
 \documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 
 
 \title{Experiments with the Maurer-Cartan form}
@@ -7,9 +10,15 @@
 
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\so}{\mathfrak{so}}
 \newcommand{\su}{\mathfrak{su}}
 \renewcommand{\sp}{\mathfrak{sp}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\Br}{\operatorname{Br}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\End}{\operatorname{End}}
+\newtheorem{theorem}{Theorem}
 
 
 \begin{document}
@@ -49,9 +58,40 @@ The main result of this controversy was the side-lining of quaternions for physi
 
 The simple fact that quaternions split into a one-dimensional and three-dimensional parts continues hint at the prospect of understanding the Maxwell's equations in a way that is natural from the point of view of quaternions.
 
-This paper presents a way of
+This paper presents presentations of the Lorentz group and Maxwell's electromagnetic equations using quaternions.
 
 
+\section{The Lorentz Group}
+
+The Lorentz group can be presented as the linear transformations of $\RR^4$ that preserve the Minkowski metric, that has signature $(1,3)$.
+The metric is easily presented for $X,Y \in \HH$ as the ``real'' part of the product:
+$$ \eta(X,Y) = \Re[XY]$$
+
+If we write $X = X_0 + \mathbf{X}$ and $Y = Y_0 + \mathbf{Y}$ then:
+$$ \eta(X,Y) = X_0Y_0 - \mathbf{X}\cdot \mathbf{Y} $$
+
+\subsection{The Brauer isomorphism}
+
+The Brauer group for the real numbers $\RR$ is isomorphic to $\ZZ_2$, and has one generator corresponding to the algebra of quaternions, $\HH$.
+This information is equivalent to the existence of an isomorphism:
+$$ \Br : \HH\otimes_\RR\HH \to \End_\RR(\HH, \HH) $$
+
+The Brauer isomorphism allows us to express linear maps of $\RR^4$, or four-by-four matricies, as tensor products of quaternions.
+
+\begin{theorem}[Brauer isomorphism]
+  For any $X,Y,Z\in\HH$, the map defined by
+$$ \Br(X\otimes Y) : Z \mapsto XZY $$
+  is an isomorphism of associative algebras $\HH\otimes_\RR\HH \to \End_\RR(\HH,\HH)$\\
+  Moreover, $\Br\circ\Br = 4 \cdot \Id$. We call this map the Brauer isomorphism.
+\end{theorem}
+
+\begin{proof}
+
+The dimension of both domain and range are equal to $4^2=16$.\\
+$\HH$ is a division domain, meaning that
+  $$\forall X\in\HH, XY=0 \Rightarrow Y=0$$
+This implies that the kernel of $\Br$ is zero.
+\end{proof}
 
 
 \end{document}
