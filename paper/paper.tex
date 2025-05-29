@@ -9,16 +9,19 @@
 
 
 \newcommand{\HH}{\mathbb{H}}
+\newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\so}{\mathfrak{so}}
 \newcommand{\su}{\mathfrak{su}}
 \renewcommand{\sp}{\mathfrak{sp}}
+\newcommand{\lorentz}{\mathfrak{l}}
 \renewcommand{\Re}{\operatorname{Re}}
 \newcommand{\Br}{\operatorname{Br}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\End}{\operatorname{End}}
 \newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
 
 
 \begin{document}
@@ -32,66 +35,161 @@
 
 \section{Introduction}
 
-The four dimensional quaternion algebra $\HH$ splits into a one-dimensional and three-dimensional sub-spaces.
+The four dimensional quaternion algebra $\HH$\footnote{There are many great presentations the quaternions, for example \cite{quaternion_text,quaternion_web,quaternion_video}} splits into one-dimensional and three-dimensional sub-spaces.
 If we think of $\HH$ as a Lie algebra, this can be presented as:
 $$\HH = \RR \oplus \so(3) = \RR \oplus \su(2) = \RR \oplus \sp(1) $$
 
-We represent the simple three dimensional Lie algebra in one of three different forms, corresponding to real, complex, and quaternionic.
+The unique simple three dimensional Lie algebra can be presented in three different forms, corresponding to real, complex, and quaternionic algebras.
 
 The algebra of quaternions was first described by Irish mathematician Sir William Hamilton in 1843.
-Hamilton was so excited about his discovery that he carved the formula into the foot bridge in Dublin.
+Hamilton was so excited about his discovery that he carved the formula into the foot bridge in Dublin (\cite{footbridge}).
 This has been commemorated by the people of Dublin ever since.
 
 Almost twenty years later, in 1861, Scottish mathematician James Maxwell wrote his electromagnetic equations.
-They represented a monumental step forward in physics, and relied on the new vector calculus developed by mathematician Willam Thomson.
-Maxwell's equations are commemorated in Edinburgh with a statue of James Maxwell.
+They represented a monumental step forward in physics, and relied on the new vector calculus developed by mathematician Willam Thomson (\cite{maxwell_electromagenetism}).
+Maxwell's equations are commemorated in Edinburgh on a statue of James Maxwell.
 
 Maxwell, in his 1873 "A treatise on electricity and magnetism", makes direct reference to quaternions but does not rely on them to present his equations.
 He did make use of $i$, $j$, and $k$ throughout, a notation that Hamilton introduced.
 
-At the end of the 19th century mathematicians studied Maxwell's equations to understand what transformations or symmetries would leave the equations invariant.
-The resulting symmetry group was named in 1905 by Poincaré as the Lorentz group.
-It was in this form that Einstein was able to interpret them correctly in his theory of special relativity.
+Towards the end of the 19th century, mathematicians studied Maxwell's equations to understand what transformations or symmetries would leave the equations invariant.
+The resulting symmetry group was named in 1905 by Poincaré as the Lorentz group (\cite{poincare_lorentz}).
+It was in this form that Einstein was able to interpret the symmetries correctly in his theory of special relativity (\cite{einstein_special_relativity}).
 
 While Maxwell's equations were being analysed, a war of words around the use of quaternions in vector calculus was being had in scientific publications.
-The main result of this controversy was the side-lining of quaternions for physical applications, and mostly abandoned by mathematicians.
+The main result of this controversy was that quaternions were side-lined for physical applications, and mostly abandoned by mathematicians (\cite{vector}).
 
-The simple fact that quaternions split into a one-dimensional and three-dimensional parts continues hint at the prospect of understanding the Maxwell's equations in a way that is natural from the point of view of quaternions.
+The simple fact that quaternions split into one and three dimensional parts continues hint at the prospect of understanding the Maxwell's equations in a way that is natural from the point of view of quaternions.
 
-This paper presents presentations of the Lorentz group and Maxwell's electromagnetic equations using quaternions.
+We start with a presentation of the Lorentz group and Maxwell's electromagnetic equations using quaternions.
 
 
 \section{The Lorentz Group}
 
-The Lorentz group can be presented as the linear transformations of $\RR^4$ that preserve the Minkowski metric, that has signature $(1,3)$.
-The metric is easily presented for $X,Y \in \HH$ as the ``real'' part of the product:
-$$ \eta(X,Y) = \Re[XY]$$
+The Lorentz group is defined as the subgroup of all linear transformations of $\RR^4$ that preserve the Minkowski metric.
+The metric is pseudo-Euclidean, having signature $(1,3)$, meaning that it describes positive and negative distances.
 
-If we write $X = X_0 + \mathbf{X}$ and $Y = Y_0 + \mathbf{Y}$ then:
+The metric is expressed using quaternions by projecting the product onto the first component of $\HH$. We write the projection as $\Re:\HH \to \RR$.
+For $X,Y \in \HH$ we can write the metric $\eta$ as:
+$$ \eta(X,Y) = \Re[X\cdot Y]$$
+
+If we write elements of $\HH$ as the sum of a real number and a three dimensional vector, for example like $X = X_0 + \mathbf{X}$, then:
 $$ \eta(X,Y) = X_0Y_0 - \mathbf{X}\cdot \mathbf{Y} $$
 
 \subsection{The Brauer isomorphism}
 
-The Brauer group for the real numbers $\RR$ is isomorphic to $\ZZ_2$, and has one generator corresponding to the algebra of quaternions, $\HH$.
-This information is equivalent to the existence of an isomorphism:
-$$ \Br : \HH\otimes_\RR\HH \to \End_\RR(\HH, \HH) $$
+In the 1960s, Grothendieck classified division algebras over number fields.
+He called the group the Brauer group, after German American mathematician Richard Brauer.
+A property of the Brauer group is that it is trivial for algebraically closed field, such as the complex numbers $\CC$.
+However, the real numbers $\RR$ are not algebraically closed, and its Brauer group is isomorphic to the two element group:
+$$\Br(\RR)=\ZZ_2$$
+The generator of this group is the algebra of quaternions $\HH$.
+In a sense, the quaternions measure the failure of the reals to be algebraically closed.
 
-The Brauer isomorphism allows us to express linear maps of $\RR^4$, or four-by-four matricies, as tensor products of quaternions.
+The definition of the Brauer group considers Morita equivalent classes of associative algebras.
+The equivalence class that includes $\HH$ is defined by an isomorphism:
+$$ \Br : \HH\otimes_\RR\HH \to \End_\RR(\RR^4) $$
+There is a natural way to present the $\Br$ isomorphism using quaternions, which allows us to express all linear transformations of $\RR^4$ tensor products of quaternions.
 
-\begin{theorem}[Brauer isomorphism]
+\begin{proposition}[Brauer isomorphism]
   For any $X,Y,Z\in\HH$, the map defined by
-$$ \Br(X\otimes Y) : Z \mapsto XZY $$
-  is an isomorphism of associative algebras $\HH\otimes_\RR\HH \to \End_\RR(\HH,\HH)$\\
-  Moreover, $\Br\circ\Br = 4 \cdot \Id$. We call this map the Brauer isomorphism.
+$$ \Br(X\otimes Z) : Y \mapsto X\cdot Y\cdot Z $$
+  is an isomorphism of associative algebras $\HH\otimes_\RR\HH \to \End_\RR(\RR^4) = \End_\RR(\HH)$\\
+\end{proposition}
+
+\begin{proof}
+The dimension of both domain and range are equal to $4^2=16$.
+That $\HH$ is a division domain implies that the kernel is zero.
+It is easy to see that the $\Br$ preserves the algebra structure.
+\end{proof}
+
+\subsection{Adjoint for the Minkowski metric}
+
+Linear maps that preserve the structure of a metric can be described using the adjoint mapping, which is defined for any metric.
+For example, the adjoint of the usual Euclidean metric is the matrix transpose.
+The adjoint is an idempotent map $\tau$ on the algebra of linear transformations that has property:
+$$ \eta(A X, Y) = \eta(X, A^\tau Y) $$
+where $A$ is an linear transformation.
+Linear transformations with the property that the adjoint is equivalent to calculating an inverse are those that preserve the metric.
+For example if $A^\tau\circ A = \textrm{Id}$, then:
+$$ \eta(A X, A Y) = \eta(X, A^\tau\circ A Y) = \eta(X, Y) $$
+
+\begin{proposition}
+  \label{prop-adjoint}
+  Let $\tau$ be defined on the algebra $\HH\otimes\HH^\circ$ by:
+  \begin{align*}
+    \tau : \HH\otimes\HH^\circ &\to\HH\otimes\HH^\circ \\
+              X \otimes Z &\mapsto Z \otimes X
+  \end{align*}
+  Then the following statements are true:
+  \begin{enumerate}
+    \item $\tau$ is the adjoint  for the Minkowski metric $\eta$.
+    \item $\tau$ is idemponent, that is $\tau \circ \tau = \mathrm{Id}$
+    \item $\tau$ is an antihomomorphism, $(A\circ B)^\tau = B^\tau \circ A^\tau$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  The algebra structure of linear transformations is expressed as simple composition.
+  The ensure that the Brauer isomorphism preserves the algebra structure it is natural to identify the right hand factor of the domain of the Brauer isomorphism, $\HH\otimes\HH$, with the opposite algebra $\HH^\circ$ defined by reversing the product.
+  Because the Brauer isomorphism is linear, any linear transformation can be expressed as a linear combination of Brauer transformed tensor products, and it is enough to check properties using one generic tensor product, such as $X\otimes Z$.
+  The symmetry of the Minkowski metric $\eta$ is reflects that the projection $\Re$ is invariant on cyclic permutations of products of quaternions.
+  The adjoint property (1) follows easily
+  \begin{align*}
+    \eta(\Br(X\otimes Z)(Y), W) &= \Re[X\cdot Y\cdot Z\cdot W] \\
+     &= \Re[Z\cdot W\cdot X\cdot Y] \\
+     &= \eta(\Br(Z\otimes X)( W), Y)  \\
+     &= \eta(Y, \Br(Z\otimes X) (W)) \\
+     &= \eta(Y, \Br(X\otimes Z^\tau) (W)) \\
+  \end{align*}
+  It is easy to see that $\tau$ is an idempotent (2).
+  The antihomomorphism property (3), that reverses the product, follows from the fact that the right hand factor is the opposite algebra:
+  \begin{align*}
+  (X\otimes Z \circ Y \otimes W)^\tau
+   &= (X \cdot Y \otimes W \cdot Z)^\tau \\
+   &= W \cdot Z \otimes X \cdot Y \\
+   &= W \otimes Y \circ Z \otimes X  \\
+    &= (Y \otimes W)^\tau \circ (X \otimes Z)^\tau  \\
+\end{align*}
+\end{proof}
+
+Using Einstein's notation, linear transformations are expressed as (1,1) tensors $A^i_jdx^j\partial_i$.
+The adjoint of a metric $\eta$ is then expressed by "raising and lowering" the indexes using the metric tensor.
+For a Euclidean metric this is easily seen switch the order of $i$ and $j$, in other words, the transpose of $A$.
+
+\subsection{The Lorentz group and Lie algebra}
+
+\begin{theorem}[The Lorentz Group]
+  The subset of $ \HH\otimes \HH^\circ$ defined as
+  $$ \{ A \in \HH\otimes\HH^\circ \mid A^\tau \cdot A = \mathrm{Id} \} $$
+  is a Lie group that is isomorphic to the Lorentz group.
 \end{theorem}
 
 \begin{proof}
+From \ref{prop-adjoint} the antihomomorphism property of $\tau$ implies that the set is closed under composition, and so the subset is a Lie group.
+The adjoint property implies that the Brauer isomorphism maps the group onto linear transformations that preserve the Minkowski metric $\eta$, also known as the Lorentz group.
+Taking the derivative of the defining condition, we can identify the Lie algebra as:
+  \begin{align*}
+    \lorentz &= \{ A \in \HH\otimes\HH^\circ \mid A^\tau + A = 0 \} \\
+     &= \{ X \otimes Z - Z\otimes X \mid X, Z \in \HH \} \\
+  \end{align*}
+  It remains to note that the Lie algebra has $\lorentz$ has dimension ${4 \choose 2} = 6$.
+  The Lorentz group has six dimensions, which shows that the Brauer isomorphism of algebras restricts to an Lie group isomorphism with the Lorentz group.
 
-The dimension of both domain and range are equal to $4^2=16$.\\
-$\HH$ is a division domain, meaning that
-  $$\forall X\in\HH, XY=0 \Rightarrow Y=0$$
-This implies that the kernel of $\Br$ is zero.
 \end{proof}
+
+The Lie algebra split $\HH=\RR\otimes\so(3)$ means that the Lorentz Lie algebra $\lorentz$ also splits into two parts.
+The definition of $\lorentz$ can be rephrased as the image of a projection, $\pi_\tau = \frac{1}{2}(\tau - \Id)$, by using the idempotent property of $\tau$.
+\begin{align*}
+  \lorentz &= \pi_\tau(\HH\otimes\HH) \\
+  &= \pi_\tau((\RR\oplus\so(3))\otimes(\RR\oplus\so(3)) \\
+  &= \pi_\tau(\RR\otimes\RR \oplus \so(3)\otimes\RR \oplus \RR\otimes\so(3) \oplus \so(3)\otimes\so(3)) \\
+  &= \pi_\tau(\RR\otimes\RR) \oplus \pi_\tau(\so(3)\otimes\RR) \oplus \pi_\tau(\RR\otimes\so(3)) \oplus \pi_\tau(\so(3)\otimes\so(3)) \\
+  &= \pi_\tau(\RR\otimes\so(3)) \oplus \pi_\tau(\so(3)\otimes\so(3)) \\
+  &= \lorentz_r \oplus \lorentz_b \\
+\end{align*}
+We have used that $\RR\otimes\RR$ is one dimensional, and so is in the kernel of $\pi_\tau$, and that $\pi_\tau$ maps $\RR\otimes\so(3)$ and $\so(3)\otimes\RR$ to the same image.
+The two parts of the $\lorentz$ Lie algebra correspond to infinitesimal ``rotations'' and ``boosts'' in Minkowski space.
 
 
 \end{document}
