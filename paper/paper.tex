@@ -16,6 +16,7 @@
 \newcommand{\su}{\mathfrak{su}}
 \renewcommand{\sp}{\mathfrak{sp}}
 \newcommand{\lorentz}{\mathfrak{l}}
+\newcommand{\g}{\mathfrak{g}}
 \renewcommand{\Re}{\operatorname{Re}}
 \newcommand{\Br}{\operatorname{Br}}
 \newcommand{\Id}{\operatorname{Id}}
@@ -182,7 +183,7 @@ The Lie algebra split $\HH=\RR\otimes\so(3)$ means that the Lorentz Lie algebra 
 The definition of $\lorentz$ can be rephrased as the image of a projection, $\pi_\tau = \frac{1}{2}(\Id - \tau )$, by using the idempotent property of $\tau$.
 \begin{align*}
   \lorentz &= \pi_\tau(\HH\otimes\HH) \\
-  &= \pi_\tau((\RR\oplus\so(3))\otimes(\RR\oplus\so(3)) \\
+  &= \pi_\tau((\RR\oplus\so(3))\otimes(\RR\oplus\so(3))) \\
   &= \pi_\tau(\RR\otimes\RR \oplus \so(3)\otimes\RR \oplus \RR\otimes\so(3) \oplus \so(3)\otimes\so(3)) \\
   &= \pi_\tau(\RR\otimes\RR) \oplus \pi_\tau(\so(3)\otimes\RR) \oplus \pi_\tau(\RR\otimes\so(3)) \oplus \pi_\tau(\so(3)\otimes\so(3)) \\
   &= \pi_\tau(\RR\otimes\so(3)) \oplus \pi_\tau(\so(3)\otimes\so(3)) \\
@@ -191,5 +192,11 @@ The definition of $\lorentz$ can be rephrased as the image of a projection, $\pi
 We have used that $\RR\otimes\RR$ is one dimensional, and so is in the kernel of $\pi_\tau$, and that $\pi_\tau$ maps $\RR\otimes\so(3)$ and $\so(3)\otimes\RR$ to the same image.
 The two parts of the $\lorentz$ Lie algebra correspond to infinitesimal ``rotations'' and ``boosts'' in Minkowski space.
 
+\section{The Maurer-Cartan equation}
+
+A one-form $\omega$ with values in a Lie algebra $\g$ on a manifold that satisfies the Maurer-Cartan equation encodes the local structure of a homogenous space $G/K$, where $G$ is a Lie group corresponding to $\g$ and $K$ is a subgroup.
+This implies that $M$ has dimension equal to $G/K$. (CITE).
+
+$$ d \omega + \omega \wedge \omega = 0 $$
 
 \end{document}
