@@ -1,11 +1,44 @@
-\documentclass{amsart}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\documentclass{article}
+
+\usepackage[all]{xy}
+\xyoption{arc}
+\xyoption{rotate}
+\xyoption{2cell}
+\UseAllTwocells
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage[text={140mm,220mm},centering]{geometry}
+
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{0.2ex}
+\renewcommand{\cfttoctitlefont}{\bfseries\large}
+\renewcommand{\cftsecfont}{\mdseries}
+\renewcommand{\cftsecpagefont}{\mdseries}
+
+\renewcommand{\theenumi}{\roman{enumi}}
+
+\usepackage[numbers]{natbib}
+%%\usepackage{natbibspacing}
+%\setlength{\bibspacing}{0pt}
+\bibliographystyle{abbrv}
+\renewcommand{\bibfont}{\small}
+
+\definecolor{myurlcolor}{rgb}{0,0,0.5}
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+linkcolor=black,
+citecolor=black,
+urlcolor=myurlcolor}
+
 
 
 \title{Experiments with the Maurer-Cartan form}
 \author{Finlay Thompson}
+\date{\vspace*{-2ex}}
 
 
 \newcommand{\HH}{\mathbb{H}}
@@ -27,14 +60,16 @@
 
 \begin{document}
 
+\sloppy
+\maketitle
 
 \begin{abstract}
   This paper is a close look at the Maurer-Cartan form in the context of the quaternions.
 \end{abstract}
 
-\maketitle
+\tableofcontents\
 
-\section{Introduction}
+\section*{Introduction}
 
 The four dimensional quaternion algebra $\HH$\footnote{There are many great presentations the quaternions, for example \cite{quaternion_text,quaternion_web,quaternion_video}} splits into one-dimensional and three-dimensional sub-spaces.
 If we think of $\HH$ as a Lie algebra, this can be presented as:
@@ -195,8 +230,10 @@ The two parts of the $\lorentz$ Lie algebra correspond to infinitesimal ``rotati
 \section{The Maurer-Cartan equation}
 
 A one-form $\omega$ with values in a Lie algebra $\g$ on a manifold that satisfies the Maurer-Cartan equation encodes the local structure of a homogenous space $G/K$, where $G$ is a Lie group corresponding to $\g$ and $K$ is a subgroup.
-This implies that $M$ has dimension equal to $G/K$. (CITE).
+This implies that $M$ has dimension equal to $G/K$. \cite{thorne_cartan}.
 
 $$ d \omega + \omega \wedge \omega = 0 $$
+
+\emph{We want to calculate this equation in detail, where $\g=\lorentz$}
 
 \end{document}
