@@ -236,4 +236,19 @@ $$ d \omega + \omega \wedge \omega = 0 $$
 
 \emph{We want to calculate this equation in detail, where $\g=\lorentz$}
 
+
+In the case of $\g=\HH$ we have that $\omega$ is a one form with values in $\HH$.
+If we let $x^i=\{x^0,x^1,x^2,x^3\}$ be a local coordinate in $\HH$, then,
+\begin{align*}
+  \omega &\in \Omega^1(\HH) \\
+  \omega &= \sum_{ij}\omega_{ij} dx^i \otimes x^j\\
+  d\omega &\in \Omega^2(\HH) \\
+  d\omega &= \sum_{ijk} \frac{\partial \omega_{ij}}{\partial x^k} dx^k \wedge dx^i \otimes x^j\\
+\end{align*}
+The bundle $\Omega^2(\HH)$ has fibre dimension $24 = 6\times4$, which is the same as $\Omega^1(\lorentz)$.
+We can can identify the fibre of $\Omega^1(\HH)$ with $\End(\HH)=\HH\otimes\HH$.
+In this case can present $\omega=p\otimes q$, as the product of two quaternion valued functions.
+This form restricts $\omega$ to being a infinitesimally conformal transformation, which has dimension $7$.
+
+
 \end{document}
